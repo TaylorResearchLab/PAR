@@ -98,9 +98,9 @@
     "distribution_xrefs": []
   },
   "rights": {
-    "status": "unknown",
-    "statement": "Illustrative fixture. Release license remains to be selected with the specification.",
-    "source": "PAR v0.01 draft release decisions"
+    "status": "specified",
+    "statement": "MIT-licensed fictional JSON fixture. Scientific content is synthetic and supplied only for structural demonstration.",
+    "source": "https://github.com/TaylorResearchLab/PAR/blob/main/LICENSE.md"
   },
   "review": {
     "status": "draft_fixture",

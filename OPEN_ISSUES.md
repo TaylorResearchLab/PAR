@@ -1,7 +1,7 @@
 # Decisions for v0.01 review
 
 1. **Authorship and stewardship.** Confirm the specification author list, maintainer and approving authority before an archival release. The current editor attribution is Deanne M. Taylor.
-2. **License.** Choose a documentation license and, if needed, a separate license for schemas and code. No license has been selected in this draft.
+2. **Licensing checks for new material.** The specification and documentation use CC BY 4.0; schemas, code and JSON fixtures use MIT. Check new contributions and any third-party material against the scope in `LICENSE.md`.
 3. **Repository and archive.** The public repository is TaylorResearchLab/PAR. Confirm the approved archival release and Zenodo metadata separately from publication of working drafts.
 4. **Publication and source locators.** Confirm the Core requirement of a publication or DOI-identified data source. Decide how to admit valuable legacy source records lacking either while retaining an explicit conformance distinction.
 5. **Identifier and version policy.** Select the persistent identifier registry or minting convention, retention policy and treatment of retrospective source corrections. Content hashes alone do not define scientific identity.

@@ -22,7 +22,7 @@ Read [the specification](SPECIFICATION.md) for the proposed Core contract. [Open
 
 This is an initial framework proposal. The draft JSON profile is not yet a JKG implementation or an RDF/SHACL reference implementation. Source-aware validation and profile development accompany structural validation.
 
-Release authorship and the licenses for documentation and software remain open decisions. This draft does not assign a license. Original scientific resources retain their own access and redistribution conditions.
+Original specification and documentation material in this repository is licensed under **CC BY 4.0**. Original schemas, code and JSON test fixtures are licensed under **MIT**. See [license scope](LICENSE.md) for the file-level split. Original scientific resources retain their own access and redistribution conditions. Archival release authorship remains to be confirmed.
 
 ## Citation
 

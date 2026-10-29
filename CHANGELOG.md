@@ -9,3 +9,4 @@
 - Separated individual PAR identifiers from PAD and specification release DOIs.
 - Added an illustrative JSON envelope and a fictional worked example.
 - Recorded open decisions for author review before a citable release.
+- Applied CC BY 4.0 to the specification and documentation and MIT to schemas, code and JSON fixtures.

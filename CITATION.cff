@@ -13,3 +13,5 @@ keywords:
   - research data
 repository-code: "https://github.com/TaylorResearchLab/PAR"
 url: "https://github.com/TaylorResearchLab/PAR"
+license: CC-BY-4.0
+# This citation describes the CC BY 4.0 specification. MIT applies to code; see LICENSE.md.

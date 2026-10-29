@@ -1,7 +1,7 @@
 # Preparing a citable specification release
 
 1. Review the Core requirements and resolve release-blocking items in `OPEN_ISSUES.md`.
-2. Confirm authorship, repository visibility and documentation/code licenses.
+2. Confirm authorship and release visibility, and verify the CC BY 4.0 documentation / MIT code split in `LICENSE.md` covers the release files.
 3. Verify examples against the declared schemas and run semantic/source-fidelity review where applicable.
 4. Freeze the specification, schemas and examples together. Identify their version and exact commit.
 5. Update citation metadata with the approved author list, release date and repository URL.
