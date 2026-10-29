@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Draft citation metadata. Confirm authorship and archival release before using this as the final citation."
+title: "Portable Assertion Records (PAR): Proposed specification v0.01"
+version: "0.01"
+authors:
+  - family-names: Taylor
+    given-names: Deanne M.
+abstract: "An initial proposed framework for portable scientific assertions with explicit claim boundaries, defined identifiers, context and traceable provenance."
+keywords:
+  - scientific assertions
+  - provenance
+  - knowledge graphs
+  - research data
+repository-code: "https://github.com/TaylorResearchLab/PAR"
+url: "https://github.com/TaylorResearchLab/PAR"

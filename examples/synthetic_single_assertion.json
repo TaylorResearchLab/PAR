@@ -1,0 +1,109 @@
+{
+  "spec_version": "0.01",
+  "id": "urn:uuid:a7c4c0c1-dfa9-4b59-a4e3-3388859e5178",
+  "version": "1",
+  "example_fixture": true,
+  "profiles": [],
+  "claim": {
+    "class": "observation",
+    "statement": "Entity A interacts with entity B under experimental condition X.",
+    "source_native_statement": "Synthetic source statement: A interacts with B under condition X.",
+    "boundary": {
+      "relationship_ids": [
+        "r1"
+      ]
+    },
+    "graph": {
+      "nodes": [
+        {
+          "id": "a",
+          "iri": "https://example.org/par-fixtures/entity-A",
+          "label": "Entity A"
+        },
+        {
+          "id": "b",
+          "iri": "https://example.org/par-fixtures/entity-B",
+          "label": "Entity B"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "r1",
+          "subject": "a",
+          "predicate": "https://example.org/par-fixtures/interactsWith",
+          "object": "b"
+        }
+      ]
+    },
+    "connection_points": [
+      "a"
+    ]
+  },
+  "semantics": {
+    "namespaces": {
+      "ex": "https://example.org/par-fixtures/"
+    },
+    "predicates": [
+      {
+        "iri": "https://example.org/par-fixtures/interactsWith",
+        "definition": "An experimentally reported interaction between the two identified entities under the stated context. This predicate is fictional.",
+        "subject_role": "interacting entity",
+        "object_role": "interacting entity",
+        "symmetric": true
+      }
+    ]
+  },
+  "origin": {
+    "kind": "publication",
+    "id": "https://example.org/par-fixtures/publication-A",
+    "title": "Synthetic publication A: a fictional PAR test fixture",
+    "issuer": "Fictional source author",
+    "record_id": "statement-1",
+    "locator": "Results, synthetic statement 1",
+    "source_version": "fixture-1",
+    "retrieved_at": "2026-10-29"
+  },
+  "context": [
+    {
+      "field": "https://example.org/par-fixtures/experimentalCondition",
+      "status": "source_stated",
+      "value": "Condition X",
+      "attribution": "https://example.org/par-fixtures/publication-A#statement-1"
+    }
+  ],
+  "evidence": {
+    "availability": "available",
+    "items": [
+      {
+        "id": "https://example.org/par-fixtures/experiment-1",
+        "role": "supports",
+        "locator": "Synthetic publication A, experiment 1"
+      }
+    ],
+    "genealogy": []
+  },
+  "provenance": {
+    "activities": [
+      {
+        "id": "https://example.org/par-fixtures/construction-1",
+        "type": "source_extraction",
+        "actor": "PAR specification example author",
+        "actor_role": "constructor",
+        "input": [
+          "https://example.org/par-fixtures/publication-A#statement-1"
+        ],
+        "description": "Fictional fixture constructed to illustrate the proposed record structure."
+      }
+    ],
+    "distribution_xrefs": []
+  },
+  "rights": {
+    "status": "unknown",
+    "statement": "Illustrative fixture. Release license remains to be selected with the specification.",
+    "source": "PAR v0.01 draft release decisions"
+  },
+  "review": {
+    "status": "draft_fixture",
+    "decisions": []
+  }
+}

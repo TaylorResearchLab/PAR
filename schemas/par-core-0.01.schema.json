@@ -1,0 +1,585 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PAR v0.01 illustrative draft JSON envelope",
+  "description": "Draft structural profile. JKG compatibility and semantic/source-fidelity checks require additional implementation. Fictional examples are fixtures only.",
+  "type": "object",
+  "properties": {
+    "spec_version": {
+      "const": "0.01"
+    },
+    "id": {
+      "type": "string",
+      "format": "iri",
+      "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "example_fixture": {
+      "type": "boolean"
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "claim": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "enum": [
+            "observation",
+            "expert_assessment",
+            "curated_relationship",
+            "computational_inference"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_native_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundary": {
+          "type": "object",
+          "properties": {
+            "relationship_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "composition_rationale": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "relationship_ids"
+          ],
+          "additionalProperties": false
+        },
+        "graph": {
+          "type": "object",
+          "properties": {
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "iri": {
+                    "type": "string",
+                    "format": "iri",
+                    "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "label"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            },
+            "relationships": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "subject": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "predicate": {
+                    "type": "string",
+                    "format": "iri",
+                    "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+                  },
+                  "object": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "subject",
+                  "predicate",
+                  "object"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "nodes",
+            "relationships"
+          ],
+          "additionalProperties": false
+        },
+        "connection_points": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "class",
+        "statement",
+        "source_native_statement",
+        "boundary",
+        "graph",
+        "connection_points"
+      ],
+      "additionalProperties": false
+    },
+    "semantics": {
+      "type": "object",
+      "properties": {
+        "namespaces": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "format": "iri",
+            "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+          }
+        },
+        "predicates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "iri": {
+                "type": "string",
+                "format": "iri",
+                "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+              },
+              "definition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subject_role": {
+                "type": "string",
+                "minLength": 1
+              },
+              "object_role": {
+                "type": "string",
+                "minLength": 1
+              },
+              "symmetric": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "iri",
+              "definition",
+              "subject_role",
+              "object_role",
+              "symmetric"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "namespaces",
+        "predicates"
+      ],
+      "additionalProperties": false
+    },
+    "origin": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "publication",
+            "doi_identified_data_source"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "iri",
+          "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issuer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "title",
+        "issuer",
+        "locator",
+        "source_version",
+        "retrieved_at"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "doi_identified_data_source"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^https://doi\\.org/10\\.[0-9]{4,9}/.+"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "context": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "format": "iri",
+            "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+          },
+          "status": {
+            "enum": [
+              "source_stated",
+              "inherited",
+              "curated",
+              "inferred",
+              "unknown",
+              "not_applicable"
+            ]
+          },
+          "value": {},
+          "attribution": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "field",
+          "status",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "availability": {
+          "enum": [
+            "available",
+            "none_reported",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "iri",
+                "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+              },
+              "role": {
+                "enum": [
+                  "supports",
+                  "contradicts",
+                  "qualifies",
+                  "contextual",
+                  "unspecified"
+                ]
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "role",
+              "locator"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "genealogy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "related_record": {
+                "type": "string",
+                "format": "iri",
+                "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+              },
+              "state": {
+                "enum": [
+                  "confirmed_shared",
+                  "probable_overlap",
+                  "unresolved",
+                  "independence_assessed"
+                ]
+              },
+              "basis": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "related_record",
+              "state",
+              "basis"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "availability",
+        "items",
+        "genealogy"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "activities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "iri",
+                "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+              },
+              "type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "actor": {
+                "type": "string",
+                "minLength": 1
+              },
+              "actor_role": {
+                "type": "string",
+                "minLength": 1
+              },
+              "input": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "actor",
+              "actor_role",
+              "input",
+              "description"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "distribution_xrefs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "iri",
+            "pattern": "^[A-Za-z][A-Za-z0-9+.-]*:"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "activities",
+        "distribution_xrefs"
+      ],
+      "additionalProperties": false
+    },
+    "rights": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "specified",
+            "restricted",
+            "unknown"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status",
+        "statement",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "actor": {
+                "type": "string",
+                "minLength": 1
+              },
+              "decision": {
+                "type": "string",
+                "minLength": 1
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "actor",
+              "decision",
+              "date"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "status",
+        "decisions"
+      ],
+      "additionalProperties": false
+    },
+    "recovery": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "enum": [
+            "exact",
+            "join_recoverable",
+            "ambiguous",
+            "unavailable"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_versions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "category",
+        "rationale",
+        "input_versions"
+      ],
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "spec_version",
+    "id",
+    "version",
+    "profiles",
+    "claim",
+    "semantics",
+    "origin",
+    "context",
+    "evidence",
+    "provenance",
+    "rights",
+    "review"
+  ],
+  "additionalProperties": false
+}

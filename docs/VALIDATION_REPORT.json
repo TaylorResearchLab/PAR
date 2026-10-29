@@ -1,0 +1,22 @@
+{
+  "schema_validation": "passed",
+  "synthetic_example_structural_validation": "passed",
+  "example_reference_checks": "passed",
+  "negative_cases_rejected": [
+    "missing id",
+    "missing origin",
+    "missing claim",
+    "missing semantics",
+    "missing evidence",
+    "empty connection points",
+    "undefined predicate IRI"
+  ],
+  "not_tested": [
+    "JKG compatibility",
+    "RDF/SHACL round-trip",
+    "real-source fidelity",
+    "scientific validity",
+    "license eligibility"
+  ],
+  "note": "An illustrative fixture, not a real scientific record."
+}
