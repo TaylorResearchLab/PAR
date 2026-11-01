@@ -18,7 +18,7 @@ remains the provisional v0.01 scaffold.
 - `candidate/PAR_Claude_Agent2_Handoff_2026-11-01.md`: Agent 1 handoff, SHA-256
   `fefc168c123f8da4bfa81d69fcd419af7065bd1d3f9d1cb4f1a7768609096919`.
 - `negative_controls.py`: 31 controls run through the candidate's own `validate()` unchanged.
-- `negative_controls_output.jsonl`: recorded outcomes (25 FALSE_PASS, 3 ACCEPTED, 1 REJECTED,
+- `negative_controls_output.jsonl`: recorded outcomes (26 FALSE_PASS, 3 ACCEPTED, 0 REJECTED,
   2 UNEXPECTED_REJECT, 3 OBSERVED).
 - `codata_stress.py`: non-biomedical metrology-shaped record; numeric values are not
   source-validated, structure is the test object.

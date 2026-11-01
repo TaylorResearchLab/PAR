@@ -162,7 +162,7 @@ control("NC-23", "aggregation_level=population from unit_of_observation='one ins
 
 r = fx("scope_projection_draft")
 r["scope"]["projection"]["basis"] = "because"
-control("NC-24", "projection basis = 'because'", r, True, note="Basis presence only (acknowledged in KNOWN_GAPS 9).")
+control("NC-24", "projection basis = 'because'", r, False, note="Basis presence only (acknowledged in KNOWN_GAPS 9). Gate corrected to core on 2026-11-01 after LOG-009; fixture is a draft, so the release gate rejected it for empty evidence, not for the basis.")
 
 r = fx("physical_measurement")
 r["scope"]["projection"] = {"kind": "transport", "basis": "n/a"}
